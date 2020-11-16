@@ -3,21 +3,38 @@
 
 
 <header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="navbar-nav">
+            <a class="navbar-brand" href="#">RiseUp</a>
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">RiseUp</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="views/categorias.php?id=1">Arte</a></li>
-                <li><a href="views/categorias.php">Comics e Ilustración</a></li>
-                <li><a href="#">Tecnología</a></li>
-                <li><a href="#">Cine</a></li>
-                <li><a href="#">Comida</a></li>
-                <li><a href="#">Publicidad</a></li>
-                <li><a href="#">...</a></li>
-                <li><a href="#">Acerca de</a></li>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="#">RiseUp</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Arte</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Comics e Ilustración</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tecnología</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cine</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Comida</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Publicidad</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">...</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Acerca de</a>
+                </li>
             </ul>
             <!--form class="navbar-form navbar-left" action="/action_page.php">
                 <div class="input-group">
@@ -29,31 +46,32 @@
                     </div>
                 </div>
             </form-->
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="views/signup.php"><span class="glyphicon glyphicon-user"></span> Regístrate </a></li>
-                <li>
-
-                    <a class="" type="button" data-toggle="dropdown"> Iniciar Sesion
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <div class="container-fluid">
-                            <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                                <div class="form-group">
-                                    <label for="email">Email address:</label>
-                                    <input class="form-control" type="email" name="email" require placeholder="Enter your email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">Password:</label>
-                                    <input class="form-control" type="password" name="pass" require placeholder="Enter your password">
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox"> Remember me</label>
-                                </div>
-                                <button type="submit" class="btn btn-primary" name="send" value="send">Submit</button>
-                            </form>
-                        </div>
-                    </ul>
+            <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Iniciar Sesión
+                    </a>
+                    <div class="dropdown-menu p-2">
+                        <form action="/action_page.php">
+                            <div class="form-group">
+                                <label for="email">Email address:</label>
+                                <input type="email" class="form-control" placeholder="Enter email" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+                            </div>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox"> Remember me
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
                 </li>
+
+            </ul>
         </div>
 
 

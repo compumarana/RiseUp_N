@@ -53,7 +53,6 @@ class project extends user
         require_once 'user.php';
 
         $sql = "SELECT * FROM project";
-
     }
 
     public function updateProject($idP, $title, $category, $description, $goal)

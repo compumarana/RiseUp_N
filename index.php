@@ -5,9 +5,10 @@
     <title>RiseUp</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
 
@@ -31,40 +32,39 @@
                 <h4>Titulo Categoría</h4>
             </div>
 
-            <div class="container" style="width: auto;">
+            <div id="demo" class="carousel slide" data-ride="carousel">
                 <h2>Carousel Example</h2>
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
-                    <ol class="carousel-indicators">
+                    <ul class="carousel-indicators">
                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                         <li data-target="#myCarousel" data-slide-to="1"></li>
                         <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
+                    </ul>
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
-                        <div class="item active">
+                        <div class="carousel-item active">
                             <!--img src="la.jpg" alt="Los Angeles" style="width:100%;"-->
                             <img src="https://www.40defiebre.com/wp-content/uploads/2013/11/optimizacion.png" style="width:50%;" alt="1">
                         </div>
 
-                        <div class="item">
+                        <div class="carousel-item">
                             <img src="https://www.softzone.es/app/uploads-softzone.es/2019/08/google-imagenes.jpg" style="width:50%;" alt="2">
                         </div>
 
-                        <div class="item">
+                        <div class="carousel-item">
                             <img src="https://as.com/meristation/imagenes/2019/06/10/betech/1560195710_365328_1560195771_noticia_normal.jpg" style="width:50%;" alt="3">
                         </div>
                     </div>
 
                     <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                        <span class="sr-only">Previous</span>
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
                     </a>
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                        <span class="sr-only">Next</span>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
                     </a>
                 </div>
             </div>
@@ -140,7 +140,7 @@
     <div class="container" style="text-align:center;">
         <a href="https://www.facebook.com/" class="fab fa-facebook-square btn-lg" role="button"></a>
 
-        <a  href="https://web.whatsapp.com/" class="fab fa-whatsapp btn-lg" role="button"></a>
+        <a href="https://web.whatsapp.com/" class="fab fa-whatsapp btn-lg" role="button"></a>
 
         <a href="https://twitter.com/?lang=es" class="fab fa-twitter btn-lg" role="button"></a>
     </div>
