@@ -5,24 +5,26 @@ require_once 'user.php';
 class project extends user
 {
 
-    public $idP;
-    public $title;
-    public $category;
-    public $description;
-    public $goal;
+    public $id;
+    public $titulo;
+    public $descripcion;
+    public $created;
+    public $modified;
+    public $usuarios_id;
+    public $categorias_id;
 
     public function __construct()
     {
     }
 
-    public function createProject($title, $category, $description, $goal, $id)
+    public function createProject($titulo, $descripcion, $created, $modified, $usuarios_id, $categorias_id)
     {
 
-        require_once 'user.php';
+        require_once 'usuarios.php';
         require 'conection.php';
 
-        $sql = "INSERT INTO project (title, category, description, goal, user_id) 
-                        VALUES ('$title', '$category', '$description', $goal, $id)";
+        $sql = "INSERT INTO project (titulo, descripcion, created, modified, usuarios_id, categorias_id) 
+                        VALUES ('$titulo', '$descripcion', '$created', $modified, $usuarios_id, $categorias_id)";
 
 
         if ($con->query($sql) === TRUE) {
