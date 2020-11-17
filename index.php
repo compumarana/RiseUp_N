@@ -14,7 +14,7 @@
 
 </head>
 
-<header>
+<header class="navbar navbar-expand-sm bg-dark navbar-dark">
     <!--No reutiliza el mismo 'componente' -->
     <!--?php require_once 'partial/header.php'; ?-->
 
