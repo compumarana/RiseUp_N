@@ -1,8 +1,7 @@
 <?php
 
-require_once 'user.php';
 
-class project extends user
+class project
 {
 
     public $id;
@@ -20,20 +19,25 @@ class project extends user
     public function createProject($titulo, $descripcion, $created, $modified, $usuarios_id, $categorias_id)
     {
 
-        require_once 'usuarios.php';
-        require 'conection.php';
+        require 'p.php';
 
-        $sql = "INSERT INTO project (titulo, descripcion, created, modified, usuarios_id, categorias_id) 
-                        VALUES ('$titulo', '$descripcion', '$created', $modified, $usuarios_id, $categorias_id)";
+        $sql = "INSERT INTO proyectos (titulo, descripcion, created, modified, usuarios_id, categorias_id) 
+                VALUES ('$titulo', '$descripcion', '$created', '$modified', '$usuarios_id', '$categorias_id')";
 
 
         if ($con->query($sql) === TRUE) {
 ?>
-            <h3 class="ok">A new account have been created</h3>
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>Exitoso!</strong> El proyecto se ha publicado de manera correcta.
+            </div>
         <?php
         } else {
         ?>
-            <h3 class="bad">¡Ops there is an issue!</h3>
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>ops!</strong> Lamentablemente ha ocurrido un error.
+            </div>
         <?php
         }
     }
