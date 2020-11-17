@@ -28,86 +28,15 @@
     <div class="row">
         <div class="col-sm-8">
             <!--                                                                           Contenido-->
-            <div class="container" style="width: auto;">
-                <h4>Titulo Categoría</h4>
-            </div>
 
-            <div id="demo" class="carousel slide" data-ride="carousel">
-                <h2>Carousel Example</h2>
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ul class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ul>
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <!--img src="la.jpg" alt="Los Angeles" style="width:100%;"-->
-                            <img src="https://www.40defiebre.com/wp-content/uploads/2013/11/optimizacion.png" style="width:50%;" alt="1">
-                        </div>
-
-                        <div class="carousel-item">
-                            <img src="https://www.softzone.es/app/uploads-softzone.es/2019/08/google-imagenes.jpg" style="width:50%;" alt="2">
-                        </div>
-
-                        <div class="carousel-item">
-                            <img src="https://as.com/meristation/imagenes/2019/06/10/betech/1560195710_365328_1560195771_noticia_normal.jpg" style="width:50%;" alt="3">
-                        </div>
-                    </div>
-
-                    <!-- Left and right controls -->
-                    <!-- Left and right controls -->
-                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#demo" data-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </a>
-                </div>
-            </div>
-
-            <!--Descripción-->
-            <div class="container" style="width: auto;">
-                <p style="text-align: justify">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-                </p>
-            </div>
+            <?php require 'views/projectList.php'; ?>
 
 
         </div>
 
         <div class="col-sm-4">
 
-            <div class="container" style="width: auto;">
-                <h4>Recomendaciones</h4>
-                <p>Mira otros proyectos que pueden interesarte...</p>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Nombre del Proyecto</th>
-                            <th>Categoría</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                        </tr>
-                        <tr>
-                            <td>Mary</td>
-                            <td>Moe</td>
-                        </tr>
-                        <tr>
-                            <td>July</td>
-                            <td>Dooley</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <?php require 'partial/recomendaciones.php'; ?>
 
         </div>
     </div>

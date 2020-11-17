@@ -2,7 +2,7 @@
 
 <ul class="navbar-nav">
     <li class="nav-item">
-        <a class="nav-link" href="#">Arte</a>
+        <a class="nav-link" href="./views/projectList.php">Arte</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#">Comics e Ilustración</a>
@@ -49,7 +49,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Iniciar</button>
                     <hr>
-                    <a href="partial/registro.php">Regístrate</a>
+                    <a href="views/registro.php">Regístrate</a>
 
                 </div>
 

@@ -30,44 +30,58 @@ $result = mysqli_query($con, $sql) or die(mysqli_error($con));
     <title>Create Project</title>
 </head>
 
+<header class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="../index.php">RiseUp</a>
+
+</header>
+
 
 <body>
 
-    <div class="container">
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="needs-validation" novalidate>
-            <input type="text" name="usuario">
-            <div class="form-group">
-                <label for="uname">Titulo:</label>
-                <input type="text" class="form-control" id="uname" placeholder="Tngrese titulo" name="titulo" required>
-                <div class="valid-feedback">Valido.</div>
-                <div class="invalid-feedback">Este campo es requerido.</div>
-            </div>
-            <div class="form-group">
-                <label for="pwd">Descripcion:</label>
-                <input type="text" class="form-control" id="pwd" placeholder="Ingrese descripcion" name="descripcion" required>
-                <div class="valid-feedback">Valido.</div>
-                <div class="invalid-feedback">Este campo es requerido.</div>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" name="remember" required> Acepto terminos y condiciones.
-                    <div class="valid-feedback">Valido.</div>
-                    <div class="invalid-feedback">Por favor acepta los terminos.</div>
-                </label>
-            </div>
-            <!--COMBOBOX DE CATEGORIAS-->
-            <div class="form-group">
-                <label for="sel1">Categorias:</label>
-                <select class="form-control" id="sel1" name="categorias">
-                    <option></option>
-                    <?php foreach ($result as $data) : ?>
-                        <option value="<?php echo $data['id']; ?>"><?php echo $data['descripcion']; ?></option>
-                    <?php endforeach ?>
-                </select>
-            </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="container m-4 p-4">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="needs-validation" novalidate>
+                    <input type="text" name="usuario">
+                    <div class="form-group">
+                        <label for="uname">Titulo:</label>
+                        <input type="text" class="form-control" id="uname" placeholder="Ingrese titulo" name="titulo" required>
+                        <div class="valid-feedback">Valido.</div>
+                        <div class="invalid-feedback">Este campo es requerido.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Descripcion:</label>
+                        <input type="textarea" class="form-control" id="pwd" placeholder="Ingrese descripcion" name="descripcion" required>
+                        <div class="valid-feedback">Valido.</div>
+                        <div class="invalid-feedback">Este campo es requerido.</div>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="remember" required> Acepto terminos y condiciones.
+                            <div class="valid-feedback">Valido.</div>
+                            <div class="invalid-feedback">Por favor acepta los terminos.</div>
+                        </label>
+                    </div>
+                    <!--COMBOBOX DE CATEGORIAS-->
+                    <div class="form-group">
+                        <label for="sel1">Categorias:</label>
+                        <select class="form-control" id="sel1" name="categorias">
+                            <option></option>
+                            <?php foreach ($result as $data) : ?>
+                                <option value="<?php echo $data['id']; ?>"><?php echo $data['descripcion']; ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
 
-            <button type="submit" name="submit" class="btn btn-primary">Publicar</button>
-        </form>
+                    <button type="submit" name="submit" class="btn btn-primary">Crear</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-4">
+
+            <?php require '../partial/recomendaciones.php'; ?>
+
+        </div>
     </div>
 
     <script>
@@ -89,7 +103,7 @@ $result = mysqli_query($con, $sql) or die(mysqli_error($con));
                 });
             }, false);
         })();
-           // PARA EVITAR REENVIO DE FORMULARIO
+        // PARA EVITAR REENVIO DE FORMULARIO
         if (window.history.replaceState) { // verificamos disponibilidad
             window.history.replaceState(null, null, window.location.href);
         }

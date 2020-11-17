@@ -1,24 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../assets/js/jquery.js"></script>
-    <?php //require_once '../partial/plantilla.php' 
-    ?>
-    <title>projectList</title>
-</head>
-
-<body>
-
+<div class="m-4">
     <h2>Lista de proyectos</h2>
     <?php
-    require_once '../models/p.php';
+    require_once 'models/p.php';
 
     /*$email = $_SESSION['email'];
 
@@ -30,9 +13,15 @@
         $data = mysqli_fetch_array($query);
     }*/
     ?>
-    <a href="createProject.php?id=<?php echo $data["id"]; ?>" class="btnNew">Create new project</a>
 
-    <a href="myProjects.php" class="btnNeutral">My Projects</a>
+    <a href="views/createProject.php?id=<?php echo $data["id"]; ?>" class="btnNew pr-4">Crear Nuevo Proyecto</a>
+
+
+    <a href="views/myProjects.php" class="btnNeutral">Mis Proyectos</a>
+    <br>
+    <hr>
+    <br>
+
 
 
     <?php
@@ -51,7 +40,7 @@
 
     <?php foreach ($result as $data) : ?>
         <div class="d-flex justify-content-center">
-            <div class="card " style="width:520px; margin-bottom: 20px;">
+            <div class="card " style="width:95%; margin-bottom: 20px;">
                 <div class="card-body">
 
                     <h4 class="card-title"><?php echo $data["titulo"]; ?></h4>
@@ -59,13 +48,10 @@
                     <p class="card-text"><?php echo $data["categorias"]; ?></p>
 
                     <div class="row">
-                        <div class="col-sm-3">
-                            <button type="button" class="btn btn-success">Like</button>
-                        </div>
-                        <div class="col-sm-3">
-                            <button type="button" class="btn btn-info">Favoritos</button>
-                        </div>
+                        <button type="button" class="btn btn-warning ml-3 mr-4 ">Me Gusta</button>
+                        <button type="button" class="btn btn-info">Agregar a Favoritos</button>
                     </div>
+                    <br>
                     <div class="card-footer">
                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <input type="hidden" name="idU" id="" value="1">
@@ -99,56 +85,55 @@
 
     <?php endforeach ?>
 
-    <?php
-    require '../models/comments.php';
+</div>
 
-    if (isset($_POST['submit'])) {
-        $idP = $_POST['idP'];
-        $idU = $_POST['idU'];
-        $comentario = $_POST['comentario'];
-        $created = date("Y-m-d H:i:s");
-        $modified = date("Y-m-d H:i:s");
 
-        $comment = new comments();
-        $comment->comment($idP, $idU, $comentario, $created, $modified);
+<?php
+require 'models/comments.php';
+
+if (isset($_POST['submit'])) {
+    $idP = $_POST['idP'];
+    $idU = $_POST['idU'];
+    $comentario = $_POST['comentario'];
+    $created = date("Y-m-d H:i:s");
+    $modified = date("Y-m-d H:i:s");
+
+    $comment = new comments();
+    $comment->comment($idP, $idU, $comentario, $created, $modified);
+}
+?>
+
+
+<script>
+    // PARA EVITAR REENVIO DE FORMULARIO
+    if (window.history.replaceState) { // verificamos disponibilidad
+        window.history.replaceState(null, null, window.location.href);
     }
-    ?>
 
+    $(document).ready(function() {
 
-    <script>
-        // PARA EVITAR REENVIO DE FORMULARIO
-        if (window.history.replaceState) { // verificamos disponibilidad
-            window.history.replaceState(null, null, window.location.href);
-        }
+        $(".enviar-btn").keypress(function(event) {
 
-        $(document).ready(function() {
+            if (event.which == 13) {
 
-            $(".enviar-btn").keypress(function(event) {
+                var getpID = $(this).parent().attr('id').replace('record-', '');
 
-                if (event.which == 13) {
+                var comentario = $("#comentario-" + getpID).val();
+                var publicacion = getpID;
 
-                    var getpID = $(this).parent().attr('id').replace('record-', '');
+                var dataString = '&comentario=' + comentario + '&publicacion=' + publicacion;
 
-                    var comentario = $("#comentario-" + getpID).val();
-                    var publicacion = getpID;
-
-                    var dataString = '&comentario=' + comentario + '&publicacion=' + publicacion;
-
-                    $.ajax({
-                        type: "POST",
-                        url: "../models/commentsAdd.php",
-                        data: dataString,
-                        success: function() {
-                            $('#nuevocomentario' + getpID).append('<div class="box-comment"><div class="comment-text">'+ comentario + '</div></div>');
-                        }
-                    });
-                    return false;
-                }
-            });
-
+                $.ajax({
+                    type: "POST",
+                    url: "../models/commentsAdd.php",
+                    data: dataString,
+                    success: function() {
+                        $('#nuevocomentario' + getpID).append('<div class="box-comment"><div class="comment-text">' + comentario + '</div></div>');
+                    }
+                });
+                return false;
+            }
         });
-    </script>
 
-</body>
-
-</html>
+    });
+</script>
