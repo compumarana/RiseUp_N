@@ -9,9 +9,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
+
 </head>
 
-<header class="navbar navbar-expand-sm bg-dark navbar-dark">
+<header class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <a class="navbar-brand" href="../index.php">RiseUp</a>
 
 </header>
@@ -19,36 +23,48 @@
 <body>
     <br>
     <br>
+    <br>
+    <br>
     <div class="container">
         <h2>Únete a la Familia RiseUp</h2>
-        <form action="/action_page.php" class="needs-validation" novalidate>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="needs-validation" novalidate id="formCheckPassword">
+            <!--div class="form-group row">
+                <label for="nombres" class="col-sm-2 col-form-label">Nombres:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nombres" placeholder="Escribe Nombres" name="nombres" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Por favor rellene este campo.</div>
+                </div>
+            </div-->
+
+
             <div class="form-group">
-                <label for="uname">Nombres:</label>
+                <label for="nombres">Nombres:</label>
                 <input type="text" class="form-control" id="nombres" placeholder="Escribe Nombres" name="nombres" required>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Por favor rellene este campo.</div>
             </div>
             <div class="form-group">
-                <label for="uname">Apellidos:</label>
+                <label for="apellidos">Apellidos:</label>
                 <input type="text" class="form-control" id="apellidos" placeholder="Escribe Apellidos" name="apellidos" required>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Por favor rellene este campo.</div>
             </div>
             <div class="form-group">
-                <label for="uname">Dirección:</label>
+                <label for="direccion">Dirección:</label>
                 <input type="text" class="form-control" id="direccion" placeholder="Escribe Dirección" name="direccion" required>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Por favor rellene este campo.</div>
             </div>
             <div class="form-group">
-                <label for="uname">Telefono:</label>
+                <label for="telefono">Telefono:</label>
                 <input type="text" class="form-control" id="telefono" placeholder="Escribe telefono" name="telefono" required>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Por favor rellene este campo.</div>
             </div>
             <div class="form-group">
-                <label for="uname">Correo:</label>
-                <input type="text" class="form-control" id="correo" placeholder="Escribe correo" name="correo" required>
+                <label for="correo">Correo:</label>
+                <input type="email" class="form-control" id="correo" placeholder="Escribe correo" name="correo" required>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Por favor rellene este campo.</div>
             </div>
@@ -59,7 +75,7 @@
                 <div class="invalid-feedback">Por favor rellene este campo.</div>
             </div>
             <div class="form-group">
-                <label for="pwd">Confirmar Contraseña:</label>
+                <label for="pwd2">Confirmar Contraseña:</label>
                 <input type="password" class="form-control" id="pwd2" placeholder="Escribe contraseña" name="pwd2" required>
                 <div class="valid-feedback">Válido.</div>
                 <div class="invalid-feedback">Por favor rellene este campo.</div>
@@ -68,14 +84,45 @@
             <!--CHECKBOX-->
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" name="remember" required> Estoy de acuerdo con <a href="">Reglas de Convivencia</a>.
+                    <input class="form-check-input" type="checkbox" name="remember" required> Estoy de acuerdo con <a href="reglasConvivencia.php" data-toggle="modal" data-target="#myModal">Reglas de Convivencia</a>.
                     <div class="valid-feedback">Válido.</div>
                     <div class="invalid-feedback">Marque esta casilla de verificación para continuar.</div>
                 </label>
             </div>
 
-            <button type="submit" class="btn btn-primary">Registrar</button>
+            <!--                                                                      The Modal -->
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header bg-warning text-white">
+                            <h4 class="modal-title">Reglas de Convivencia</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <?php require 'reglasConvivencia.php'; ?>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--                                                Fin Modal-->
+
+
+
+
+            <button type="submit" name="submit" class="btn btn-primary">Registrar</button>
         </form>
+        <br>
+        <br>
     </div>
 
     <script>
@@ -97,18 +144,60 @@
                 });
             }, false);
         })();
-        //VALIDAR QUE AMBAS CONTRASEÑAS SEAN IGUAL
-        var p1 = document.getElementById("passwd").value;
-        var p2 = document.getElementById("passwd2").value;
+        //VALIDAR CONTRASEÑAS
+        $("#formCheckPassword").validate({
+            rules: {
+                pwd: {
+                    required: true,
+                    minlength: 6,
+                    maxlength: 10,
 
-        if (p1 != p2) {
-            alert("Las passwords deben de coincidir");
-            return false;
-        } else {
-            alert("Todo esta correcto");
-            return true;
-        }
+                },
+
+                pwd2: {
+                    equalTo: "#pwd",
+                    minlength: 6,
+                    maxlength: 10
+                }
+
+
+            },
+            messages: {
+                pwd: {
+                    required: "Campo Requerido",
+                    minlength: "Minimo 6 caracteres",
+                    maxlength: "Maximo 10 caracteres"
+                },
+                pwd2: {
+                    equalTo: "La contraseña debe ser igual al anterior",
+                    minlength: "Minimo 6 caracteres",
+                    maxlength: "Maximo 10 caracteres"
+                }
+            }
+
+        });
     </script>
+
+
+    <?php
+    require "../models/user.php";
+    require "../models/p.php";
+
+    if (isset($_POST['submit'])) {
+
+        $nombres = $_POST['nombres'];
+        $apellidos = $_POST['apellidos'];
+        $direccion = $_POST['direccion'];
+        $telefono = $_POST['telefono'];
+        $correo = $_POST['correo'];
+        $pass = md5($_POST['pwd2']);
+        $created = date("Y-m-d H:i:s");
+        $modified = date("Y-m-d H:i:s");
+
+        $project = new user();
+        $project->create($nombres, $apellidos, $direccion, $telefono, $correo, $pass, $created, $modified);
+    }
+    ?>
 
 </body>
 

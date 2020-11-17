@@ -6,33 +6,41 @@ class user
 {
 
     public $id;
-    public $name;
+    public $nombres;
     public $lastName;
-    public $studies;
-    public $profile;
-    public $budget;  //presupuesto
-    public $email;
-    public $pass;
+    public $apellidos;
+    public $direccion;
+    public $telefono;
+    public $correo;
+    public $contrasena;
+    public $created;
+    public $modfied;
 
     public function __construct()
     {
     }
 
-    public function create($name, $lastName, $studies, $profile, $budget, $email, $pass)
+    public function create($nombres, $apellidos, $direccion, $telefono, $correo, $contrasena, $created, $modified)
     {
 
-        require 'conection.php';
+        require 'p.php';
 
-        $sql = "INSERT INTO users (name, lastname, studies, profile, budget, email, pass)
-            VALUES ('$name', '$lastName', '$studies', '$profile', $budget, '$email', '$pass')";
+        $sql = "INSERT INTO usuarios (nombres, apellidos, direccion, telefono, correo, contrasena, created, modified)
+            VALUES ('$nombres', '$apellidos', '$direccion', '$telefono', '$correo', '$contrasena', '$created', '$modified')";
 
         if ($con->query($sql) === TRUE) {
 ?>
-            <h3 class="ok">A new account have been created</h3>
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>Felicidades!</strong> Ha creado una cuenta.
+            </div>
         <?php
         } else {
         ?>
-            <h3 class="bad">¡Ops there is an issue!</h3>
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>ops!</strong> Lamentablemente ha ocurrido un error.
+            </div>
         <?php
         }
     }

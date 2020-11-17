@@ -14,7 +14,7 @@
 
 </head>
 
-<header class="navbar navbar-expand-sm bg-dark navbar-dark">
+<header class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <!--No reutiliza el mismo 'componente' -->
     <!--?php require_once 'partial/header.php'; ?-->
 
@@ -25,6 +25,8 @@
 
 
 <body>
+    <br>
+    <br>
     <div class="row">
         <div class="col-sm-8">
             <!--                                                                           Contenido-->

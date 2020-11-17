@@ -27,11 +27,11 @@
     </li>
 </ul>
 <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-    <li class="nav-item dropdown">
+    <li class="nav-item dropleft">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
             Iniciar Sesión
         </a>
-        <div class="dropdown-menu pr-4 pl-2">
+        <div class="dropdown-menu pr-4 pl-4" style="width: 200px;">
             <form action="/action_page.php">
                 <div>
                     <div class="form-group">
@@ -49,16 +49,17 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Iniciar</button>
                     <hr>
-                    <a href="views/registro.php">Regístrate</a>
-
+                    <a class="dropdown-item" href="views/registro.php">Regístrate</a>
+                    <br>
                 </div>
 
             </form>
         </div>
+        
     </li>
     <li class="nav-item dropdown" hidden>
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            User Name
+            Nombre de Usuario
         </a>
         <div class="dropdown-menu pr-4 pl-2">
             <form action="/action_page.php">
