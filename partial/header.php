@@ -1,23 +1,23 @@
-<a class="navbar-brand" href="index.php">RiseUp</a>
+<a class="navbar-brand" href="index.php"><img src="img/RiseUpRT.png" class="img-fluid mx-auto d-block" width="20" height="20" alt="RiseUp"></a>
 
 <ul class="navbar-nav">
     <li class="nav-item">
-        <a class="nav-link" href="./views/projectList.php">Arte</a>
+        <a class="nav-link" href="views/categorias.php?id=1">Arte</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Comics e Ilustración</a>
+        <a class="nav-link" href="views/categorias.php?id=2">Comics e Ilustración</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Tecnología</a>
+        <a class="nav-link" href="views/categorias.php?id=3">Tecnología</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Cine</a>
+        <a class="nav-link" href="views/categorias.php?id=4">Cine</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Comida</a>
+        <a class="nav-link" href="views/categorias.php?id=5">Comida</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Publicidad</a>
+        <a class="nav-link" href="views/categorias.php?id=6">Publicidad</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#">...</a>
@@ -36,11 +36,11 @@
                 <div>
                     <div class="form-group">
                         <label for="email">Correo:</label>
-                        <input type="email" class="form-control" placeholder="Enter email" id="email">
+                        <input type="email" class="form-control" placeholder="Enter email" id="email" name="email">
                     </div>
                     <div class="form-group">
                         <label for="pwd">Contraseña:</label>
-                        <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+                        <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="pwd">
                     </div>
                     <div class="form-group form-check">
                         <label class="form-check-label">
@@ -49,24 +49,31 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Iniciar</button>
                     <hr>
-                    <a class="dropdown-item" href="views/registro.php">Regístrate</a>
+
+                    <a class="dropdown-item" href="views/signup.php">Regístrate</a>
+
                     <br>
                 </div>
 
             </form>
         </div>
-        
+
     </li>
-    <li class="nav-item dropdown" hidden>
+    <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
             Nombre de Usuario
         </a>
         <div class="dropdown-menu pr-4 pl-2">
             <form action="/action_page.php">
                 <div>
-                    <div class="form-group">
-                        <a href="">Mis Proyectos</a>
+                    <div>
+                        <img src="img/RiseUpRT.png" class="img-fluid mx-auto d-block" width="20" height="20" alt="RiseUp">
                     </div>
+                    <hr>
+                    <div class="form-group">
+                        <a href="views/editUser.php">Editar Usuario</a>
+                    </div>
+
                     <div class="form-group">
                         <a href="#">Mis Favoritos</a>
                     </div>

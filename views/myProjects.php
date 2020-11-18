@@ -19,35 +19,70 @@
 <body>
     <br>
     <br>
-    <a href="projectList.php" class="btnUpdate">See all projects</a>
 
-        <?php
 
-        //$id = $_SESSION['idUser'];
 
-        require_once '../models/p.php';
 
-        $sql = "SELECT p.id, p.titulo, p.descripcion, c.descripcion AS categorias
+
+
+    <div class="row">
+        <div class="col-sm-8">
+            <!--                                                                                     Contenido-->
+            <a href="../index.php">
+                <button type="button" class="btn btn-warning ml-3 mr-4 ">Ver todos los Proyectos</button>
+            </a>
+
+            <hr>
+            <br>
+
+            <?php
+
+            //$id = $_SESSION['idUser'];
+
+            require_once '../models/p.php';
+
+            $sql = "SELECT p.id, p.titulo, p.descripcion, c.descripcion AS categorias
                 FROM proyectos p
                 INNER JOIN categorias c ON p.categorias_id = c.id
                 WHERE usuarios_id = 1";
 
-        $result = mysqli_query($con, $sql);
+            $result = mysqli_query($con, $sql);
 
-        foreach ($result as $data) :
-        ?>
-            <tr>
-                <td><?php echo $data["id"]; ?></td>
-                <td><?php echo $data["titulo"]; ?></td>
-                <td><?php echo $data["descripcion"]; ?></td>
-                <td><?php echo $data["categorias"]; ?></td>
-                <td>
-                    <a href="updateProject.php?id=<?php echo $data["id"]; ?>" class="btnUpdate">Update</a>
-                    <a href="deleteProject.php?id=<?php echo $data["id"]; ?>" class="btnDelete">Delete</a>
+            foreach ($result as $data) :
+            ?>
 
 
-                </td>
-            </tr>
+                <div class="d-flex justify-content-center">
+                    <div class="card " style="width:95%; margin-bottom: 20px;">
+                        <div class="card-body">
 
-        <?php endforeach ?>
+                            <h4 class="card-title"><?php echo $data["id"] . "-" . $data["titulo"]; ?></h4>
+                            <p class="card-text"><?php echo $data["descripcion"]; ?></p>
+                            <p class="card-text"><?php echo $data["categorias"]; ?></p>
+
+                            <div class="row">
+
+                            </div>
+
+                            <br>
+
+                            <div class="card-footer">
+                                <button href="updateProject.php?id=<?php echo $data["id"]; ?>" type="button" class="btn btn-warning ml-3 mr-4 ">Update</button>
+                                <button href="deleteProject.php?id=<?php echo $data["id"]; ?>" type="button" class="btn btn-info">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            <?php endforeach ?>
+        </div>
+
+        <div class="col-sm-4">
+            <!--                                                                                     Recomendaciones-->
+
+            <?php require '../partial/recomendaciones.php'; ?>
+
+        </div>
+    </div>
 </body>

@@ -10,15 +10,11 @@ if (empty($_GET['id'])) {
     $id = $_GET['id'];
 
 
-    require_once '../models/conection.php';
+    require_once '../models/p.php';
 
-    $query = mysqli_query($con, "SELECT * FROM proyectos WHERE categorias_id = '$id' ORDER BY id DESC ");
+    $sql = "SELECT * FROM proyectos WHERE categorias_id = '$id' ORDER BY id DESC ";
 
-    $result = mysqli_num_rows($query);
-    if ($result > 0) {
-
-        $data = mysqli_fetch_array($query);
-    }
+    $result = mysqli_query($con, $sql);
 }
 ?>
 
@@ -33,30 +29,30 @@ if (empty($_GET['id'])) {
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
 
 </head>
 
-<header>
-    <!--No reutiliza el mismo 'componente' -->
-    <!--?php require_once 'partial/header.php'; ?-->
-
-    <?php require '../partial/header.php'; ?>
-    <!--Reutilizar un 'componente' -->
+<header class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand" href="../index.php"><img src="../img/RiseUpRT.png" class="img-fluid mx-auto d-block" width="20" height="20" alt="RiseUp" title="RiseUp"></a>
 
 </header>
 
 
 <body>
+    <br>
+    <br>
+    <br>
     <div class="row">
         <div class="col-sm-8">
             <!--                                                                           Contenido-->
             <div class="container" style="width: auto;">
-                <h4><?php echo $data["categorias_id"]; ?></h4>
+                <h4></h4>
             </div>
 
             <div class="container" style="width: auto;">
@@ -72,7 +68,7 @@ if (empty($_GET['id'])) {
                     </thead>
                     <tbody>
                         <?php
-                        while ($data = mysqli_fetch_array($query)) {
+                        foreach ($result as $data) :
                         ?>
                             <tr>
                                 <td></td>
@@ -84,11 +80,7 @@ if (empty($_GET['id'])) {
                                 </td>
                             </tr>
 
-                        <?php
-                        }
-                        print_r($data);
-
-                        ?>
+                            <?php endforeach ?>
                     </tbody>
                 </table>
             </div>
