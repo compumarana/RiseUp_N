@@ -8,20 +8,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="icon" href="../img/RiseUp.ico" type="image/x-icon">
     <?php /*require_once '../partial/plantilla.php' */ ?>
-    <title>Mis Proyectos</title>
+    <title>Mis Favoritos</title>
 </head>
 
 
 <header class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <!--a class="navbar-brand" href="../index.php"><img src="../img/RiseUpRT.png" class="img-fluid mx-auto d-block" width="20" height="20" alt="RiseUp" title="RiseUp"></a-->
-    <?php include '../partial/header.php'; ?>
+    <a class="navbar-brand" href="../index.php"><img src="../img/RiseUpRT.png" class="img-fluid mx-auto d-block" width="20" height="20" alt="RiseUp" title="RiseUp"></a>
 
 </header>
 
-<body>
+<body >
     <br>
     <br>
-    <h4 class="pl-4">Mis Proyectos</h4>
+    <h4 class="pl-4">Mis Proyectos Favoritos</h4>
     <div class="row">
         <div class="col-sm-8">
             <!--                                                                                     Contenido-->
@@ -83,7 +82,7 @@
         <div class="col-sm-4">
             <!--                                                                                     Recomendaciones-->
 
-            <?php require '../partial/recomendaciones.php'; ?>
+            <?php include '../partial/recomendaciones.php'; ?>
 
         </div>
     </div>

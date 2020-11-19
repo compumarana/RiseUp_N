@@ -12,9 +12,10 @@ if (empty($_GET['id'])) {
 
     require_once '../models/p.php';
 
-    $sql = "SELECT * FROM proyectos WHERE categorias_id = '$id' ORDER BY id DESC ";
+    $sql = "SELECT P.id, P.titulo, P.descripcion, p.usuarios_id, P.categorias_id, C.descripcion AS descripCat FROM proyectos P INNER JOIN categorias C ON P.categorias_id = C.id WHERE categorias_id = '$id' ORDER BY id DESC ";
 
     $result = mysqli_query($con, $sql);
+    $cont = mysqli_num_rows($result);
 }
 ?>
 
@@ -39,7 +40,8 @@ if (empty($_GET['id'])) {
 </head>
 
 <header class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-    <a class="navbar-brand" href="../index.php"><img src="../img/RiseUpRT.png" class="img-fluid mx-auto d-block" width="20" height="20" alt="RiseUp" title="RiseUp"></a>
+    <!--a class="navbar-brand" href="../index.php"><img src="../img/RiseUpRT.png" class="img-fluid mx-auto d-block" width="20" height="20" alt="RiseUp" title="RiseUp"></a-->
+    <?php include '../partial/header.php'; ?>
 
 </header>
 
@@ -52,7 +54,17 @@ if (empty($_GET['id'])) {
         <div class="col-sm-8">
             <!--                                                                           Contenido-->
             <div class="container" style="width: auto;">
-                <h4></h4>
+                <h4>
+                    <?php
+                    if ($cont > 0) {
+                        $data = mysqli_fetch_array($result);
+                        echo $data["descripCat"];
+                    }else{
+                        echo "No hay proyectos con esta categoria";
+                    }
+                    
+                    ?>
+                </h4>
             </div>
 
             <div class="container" style="width: auto;">
@@ -80,7 +92,7 @@ if (empty($_GET['id'])) {
                                 </td>
                             </tr>
 
-                            <?php endforeach ?>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>

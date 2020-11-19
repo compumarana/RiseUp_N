@@ -5,11 +5,20 @@
     <title>RiseUp</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="icon" href="img/RiseUp.ico" type="image/x-icon">
+
+
+    <!--Iconos Ionic-->
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
 
@@ -19,8 +28,12 @@
     <!--No reutiliza el mismo 'componente' -->
     <!--?php require_once 'partial/header.php'; ?-->
 
-    <?php require 'partial/header.php'; ?>
+    <?php include 'partial/header.php'; ?>
     <!--Reutilizar un 'componente' -->
+
+    <!--?php
+    echo readfile("partial/header.php");
+    ?-->
 
 </header>
 
@@ -32,7 +45,7 @@
         <div class="col-sm-8">
             <!--                                                                           Contenido-->
 
-            <?php require 'views/projectList.php'; ?>
+            <?php include 'views/projectList.php'; ?>
 
 
         </div>
@@ -40,7 +53,7 @@
         <div class="col-sm-4">
             <!--                                                                                     Recomendaciones-->
 
-            <?php require 'partial/recomendaciones.php'; ?>
+            <?php include 'partial/recomendaciones.php'; ?>
 
         </div>
     </div>

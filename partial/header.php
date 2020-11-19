@@ -1,26 +1,23 @@
-<a class="navbar-brand" href="index.php"><img src="img/RiseUpRT.png" class="img-fluid mx-auto d-block" width="20" height="20" alt="RiseUp"></a>
+<a class="navbar-brand" href="/RiseUp_N/index.php"><img src="/RiseUp_N/img/RiseUpRT.png" class="img-fluid mx-auto d-block" width="20" height="20" alt="RiseUp"></a>
 
 <ul class="navbar-nav">
     <li class="nav-item">
-        <a class="nav-link" href="views/categorias.php?id=1">Arte</a>
+        <a class="nav-link" href="/RiseUp_N/views/category.php?id=1">Arte</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="views/categorias.php?id=2">Comics e Ilustración</a>
+        <a class="nav-link" href="/RiseUp_N/views/category.php?id=2">Comics e Ilustración</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="views/categorias.php?id=3">Tecnología</a>
+        <a class="nav-link" href="/RiseUp_N/views/category.php?id=3">Tecnología</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="views/categorias.php?id=4">Cine</a>
+        <a class="nav-link" href="/RiseUp_N/views/category.php?id=4">Cine</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="views/categorias.php?id=5">Comida</a>
+        <a class="nav-link" href="/RiseUp_N/views/category.php?id=5">Comida</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="views/categorias.php?id=6">Publicidad</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">...</a>
+        <a class="nav-link" href="/RiseUp_N/views/category.php?id=6">Publicidad</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#">Acerca de</a>
@@ -67,7 +64,7 @@
             <form action="/action_page.php">
                 <div>
                     <div>
-                        <img src="img/RiseUpRT.png" class="img-fluid mx-auto d-block" width="20" height="20" alt="RiseUp">
+                        <img src="/RiseUp_N/img/RiseUpRT.png" class="img-fluid mx-auto d-block" width="20" height="20" alt="RiseUp">
                     </div>
                     <hr>
                     <div class="form-group">
@@ -75,7 +72,7 @@
                     </div>
 
                     <div class="form-group">
-                        <a href="#">Mis Favoritos</a>
+                        <a href="views/favorites.php">Mis Favoritos</a>
                     </div>
                     <hr>
                     <div class="form-group">

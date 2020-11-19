@@ -16,7 +16,8 @@
 </head>
 
 <header class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-    <a class="navbar-brand" href="../index.php">RiseUp</a>
+    <!--a class="navbar-brand" href="../index.php">RiseUp</a-->
+    <?php include '../partial/header.php'; ?>
 
 </header>
 
@@ -84,7 +85,7 @@
             <!--CHECKBOX-->
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" name="remember" required> Estoy de acuerdo con <a href="reglasConvivencia.php" data-toggle="modal" data-target="#myModal">Reglas de Convivencia</a>.
+                    <input class="form-check-input" type="checkbox" name="remember" required> Estoy de acuerdo con <a href="reglasConvivencia.php" data-toggle="modal" data-target="#myModal">Reglas de Convivencia</a>
                     <div class="valid-feedback">Válido.</div>
                     <div class="invalid-feedback">Marque esta casilla de verificación para continuar.</div>
                 </label>
@@ -103,7 +104,7 @@
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <?php require 'reglasConvivencia.php'; ?>
+                            <?php include 'reglasConvivencia.php'; ?>
                         </div>
 
                         <!-- Modal footer -->
